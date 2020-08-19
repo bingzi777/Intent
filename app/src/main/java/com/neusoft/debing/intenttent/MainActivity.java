@@ -29,12 +29,16 @@ public  class MainActivity extends AppCompatActivity implements View.OnClickList
     public void onClick(View view) {
         switch (view.getId()){
             case R.id.button:
+
+//         显式调用：调用自己写的页面
+//         隐式调用：（不确定界面叫什么）模糊匹配，模糊查找
+
                 //Intent显示调用
               //  1.创建一个Intent
                 Intent q =new Intent();
               // 2.指定当前的应用程序上下文以及要启动的Activity；设置要跳转的目的地
-                q.setClass(this,Detai.class);
-              // 3.指定当前的应用程序上下文以及要启动的Activity；启动新的actibity
+                q.setClass(this,Detai.class);//代表了内部内里的this，要用getBaseContext（）去调用它的上下文Intent显示调用
+             // 3.指定当前的应用程序上下文以及要启动的Activity；启动新的actibity
                 startActivity(q);//启动新的actibity
                 break;
             case R.id.button2:
@@ -49,7 +53,7 @@ public  class MainActivity extends AppCompatActivity implements View.OnClickList
                 // 1. 调用搜索引擎（无法访问谷歌搜索引擎）
                 Intent w =new Intent();//实例化Intent
                 w.setAction(Intent.ACTION_WEB_SEARCH);//指定动作
-                w.putExtra(SearchManager.QUERY,"安卓 intent使用方法");//设置数据
+                w.putExtra(SearchManager.QUERY,"安卓 intent使用方法");//设置数据；SearchManager是一种用于搜索的类，QUERY静态方法查询
                 startActivity(w);//启动这个应用
                 break;
             case R.id.button5:
